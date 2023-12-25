@@ -1,0 +1,11 @@
+<!-- blog_list.html -->
+<a href="{% url 'blog:blog_dashboard' %}">Dashboard</a>
+<a href="{% url 'blog:login' %}">Log In</a>
+
+{% for blog in blogs %}
+  <div class="blog-summary">
+    <h3>{{ blog.title }}</h3>
+    <p>Posted on: {{ blog.date_posted }}</p>
+    <a href="{% url 'blog:blog_detail' pk=blog.pk %}">Read More</a>
+  </div>
+{% endfor %}

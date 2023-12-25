@@ -1,0 +1,23 @@
+<!-- blog_dashboard.html -->
+
+{% block content %}
+  <h2>Your Blog Dashboard</h2>
+  <!-- base.html -->
+
+<a href="{% url 'blog:logout' %}">Logout</a>
+
+  <div class="dashboard-container">
+    <a href="{% url 'blog:blog_new' %}">Create a New Blog</a>
+
+    {% for blog in blogs %}
+      <div class="blog-summary">
+        <h3>{{ blog.title }}</h3>
+        <p>{{ blog.content }}</p>
+        <p>Posted on: {{ blog.date_posted }}</p>
+        <a href="{% url 'blog:blog_detail' pk=blog.pk %}">Read More</a>
+        <a href="{% url 'blog:blog_edit' pk=blog.pk %}">Edit</a>
+        <a href="{% url 'blog:blog_delete' pk=blog.pk %}">Delete</a>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

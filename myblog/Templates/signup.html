@@ -1,0 +1,25 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <a href="{% url 'blog:login' %}">Log In</a>
+
+    {% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+  {% endif %}
+    <form method="post" action="{% url 'blog:signup' %}">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required>
+        <button type="submit">Sign Up</button>
+    </form>
+</body>
+</html>

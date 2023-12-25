@@ -1,0 +1,13 @@
+<!-- blog_detail.html -->
+<a href="{% url 'blog:blog_dashboard' %}">Dashboard</a>
+
+{% block content %}
+  <h1>{{ blog.title }}</h1>
+  <p>{{ blog.date_posted }}</p>
+
+    <p id="blog-content">{{ blog.content }}</p>
+
+    <a href="{% url 'blog:blog_list' %}">Back</a>
+
+ 
+{% endblock %}
